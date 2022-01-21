@@ -2,6 +2,8 @@ import socket
 import os, random
 import threading
 import hashlib
+import pywhatkit as kit
+import datetime
 
 
 # Create Socket (TCP) Connection
@@ -18,46 +20,22 @@ print('Waitiing for a Connection..')
 ServerSocket.listen(5)
 HashTable = {}
 
-# Function : For each client 
 def threaded_client(connection):
-    connection.send(str.encode('ENTER USERNAME : ')) # Request Username
-    name = connection.recv(2048)
-    # connection.send(str.encode('ENTER PASSWORD : ')) # Request Password
-    # password = connection.recv(2048)
-    # password = password.decode()
-    name = name.decode()
+    connection.send(str.encode('ENTER CELL NUMBER : ')) # Request Username
+    cell = connection.recv(2048)
+    response = cell.decode()
     caratteri = ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
                 '!£$%#&=?0123456789%&$%£££"((')
     password = ''
     for i in range(0,20):
         password += random.choice(caratteri)
     print(password)
+    now = datetime.datetime.now()
+    ora = now.hour
+    minuti = now.minute + 1
     connection.send(str.encode(password))
+    kit.sendwhatmsg('+39' + str(response),password, ora, minuti)
     connection.close()
-    #password=hashlib.sha256(str.encode(name)).hexdigest() # Password hash using SHA256
-# REGISTERATION PHASE   
-# If new user,  regiter in Hashtable Dictionary  
-#     if name not in HashTable:
-#         HashTable[name]=password
-#         connection.send(str.encode('Registeration Successful')) 
-#         print('Registered : ',name)
-#         print("{:<8} {:<20}".format('USER','PASSWORD'))
-#         for k, v in HashTable.items():
-#             label, num = k,v
-#             print("{:<8} {:<20}".format(label, num))
-#         print("-------------------------------------------")
-        
-#     else:
-# # If already existing user, check if the entered password is correct
-#         if(HashTable[name] == password):
-#             connection.send(str.encode('Connection Successful')) # Response Code for Connected Client 
-#             print('Connected : ',name)
-#         else:
-#             connection.send(str.encode('Login Failed')) # Response code for login failed
-#             print('Connection denied : ',name)
-#     while True:
-#         break
-        
 
 while True:
     Client, address = ServerSocket.accept()
