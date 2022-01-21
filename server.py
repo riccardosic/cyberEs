@@ -1,4 +1,5 @@
 from socket import socket, AF_INET, SOCK_DGRAM
+import hashlib
 
 DEFAULT_ADDRESS = ('127.0.0.1', 11113)
 
@@ -15,14 +16,16 @@ class Server():
     def listen(self):
         while True:
             data, addr = self.socket.recvfrom(1024)
+            print('data: ' + str(data))
             response = bytes(self.act_on(data, addr), "utf-8")
             self.socket.sendto(response, addr)
     
     def act_on(self, data, addr):
         print("Connection from", addr)
-        if data.upper().decode()  == 'pippo':
-            return data.upper().decode(), 'autenticato!'
-        return data.upper().decode(), 'non autenticato :( '
+        print(data)
+        if str(data)=='pippo':
+            print('True')
+        return data.upper().decode()
 
 
 if __name__ == '__main__':

@@ -12,11 +12,11 @@ class Client():
         self.socket.bind(('127.0.0.1', 0)) # OS chooses port
         self.socket_name = self.socket.getsockname()
     
-    def poll_server(self, data, server=DEFAULT_SERVER):
+    def poll_server(self, data,  server=DEFAULT_SERVER):
         self.socket.sendto(bytes(data, "utf-8"), server)
-        response, addr = self.socket.recvfrom(1024)
+        response = self.socket.recvfrom(2048)
         self.socket.close()
-        return response, addr
+        return response
 
 
 if __name__ == '__main__':
