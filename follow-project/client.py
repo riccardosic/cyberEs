@@ -6,7 +6,7 @@ client.connect(('127.0.0.1', 1234))
 response = client.recv(2048)
 # Input UserName
 name = input(response.decode())	
-client.send(str.encode(name))
+client.send(str.encode(str(name)))
 response = client.recv(2048)
 # Input Password
 # password = input(response.decode())	
