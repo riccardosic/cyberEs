@@ -1,11 +1,38 @@
-- Filippo Erbisti : Scientist
-- Riccardo Sicchieri : Engineer
-- Federico Aliprandi : Programmer
-- Pietro Benedetti : Jolly
+# ES - (SSE)Security Software Engineering
+
+TEAM:
+- *Aliprandi Federico*: `Programmer`
+- *Benedetti Pietro*: `Jolly`
+- *Erbisti Filippo*: `Scientist`
+- *Sicchieri Riccardo*: `Engineer`
+
+## Statement
+
+[Link guide](https://edu.v-research.it/security_engineering_2021/)
+
+- - -
+• Creation Login System *without* password
+- - -
 
 Primarily for the correct operation you need to open Whatsapp Web on browser and login
 
-# Start the Project
+## Installation
+
+1. Run `git clone git@github.com:v-research/securityengineering.git`
+
+2. Check if Python is installed:
+   - Enter in `/project` directory
+   - Enter in `/cyberES` directory
+   - Run `python --version` and `which python` to check versione and installation directory
+
+3. Install packages from **requirements.txt**:
+```
+pip install -r requirements.txt 
+```
+
+(Probably it required package flask, in that case install it ```pip install flask```)
+
+## Start Project
 
 1. Create virtual environment with:
 ```
@@ -26,19 +53,10 @@ python -m venv v_env_x1
 . bin/activate
 ```
 
-4. Enter into `/follow-project`
-
-5. Install packages from **requirements.txt**:
-```
-pip install -r ../requirements.txt 
-```
-
-(Probably it required package flask, in that case install it ```pip install flask```)
-
 To close Project use in terminal: ```deactivate```
 
 
-# Run Project
+## Run Project
 
 In the `/follow-project` split the terminal and run:
 
@@ -46,7 +64,7 @@ In the `/follow-project` split the terminal and run:
 python server.py
 ```
 
-It start server, if all is correct run:
+If server start correctly, run:
 
 ```
 python client.py

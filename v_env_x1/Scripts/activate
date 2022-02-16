@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\Mediaworld - 109016\Desktop\cyberEs\v_env_x1"
+VIRTUAL_ENV="C:\Users\Mediaworld - 109016\Desktop\its\anno2\Cyber-Security\cyberEs\v_env_x1"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
