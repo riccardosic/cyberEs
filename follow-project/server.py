@@ -33,9 +33,15 @@ def threaded_client(connection):
     now = datetime.datetime.now()
     ora = now.hour
     minuti = now.minute + 1
-    connection.send(str.encode(password))
+    #connection.send(str.encode(password))
     kit.sendwhatmsg('+39' + str(response),password, ora, minuti)
-    connection.close()
+    #connection.close()
+    recvPass = connection.recv(2048).decode()
+    if recvPass == password:
+        connection.send(str.encode('connessione sicura'))
+    else:
+        connection.send(str.encode('connessione non riuscita'))
+        connection.close()
 
 while True:
     Client, address = ServerSocket.accept()
