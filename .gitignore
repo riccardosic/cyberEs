@@ -2,8 +2,8 @@ venv/
 follow-project/venv
 follow-project/t3.png
 follow-project/README.md
-/__pycache__/
+__pycache__/
 doc/
 .DS_Store
 login.py
-/v_env_x1/
+v_env_x1/
