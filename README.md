@@ -70,6 +70,8 @@ If server start correctly, run:
 python client.py
 ```
 
-It ask for a cell number, enter a correct phone number and send.
+In terminal, it ask for a cell number, enter a correct phone number and send.
 This automatically open another Whatsapp Web Tab's and generate a randomic hash 20 characters, 
 after a few seconds you can see the start of the chat and send the password.
+`
+Then enter the password received. If all is correct it prints 'connessione sicura', else 'connessione non riuscita' and close connection. 
