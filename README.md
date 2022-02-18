@@ -36,21 +36,19 @@ pip install -r requirements.txt
 
 1. Create virtual environment with:
 ```
-python -m venv v_env_x1
+python -m venv venv
 ```
 
-2. `cd v_env_x1`
-
-3. Activate the virtual environment:
+2. Activate the virtual environment:
 
 **For Windows**
 ```
-. Scripts/activate
+venv/Scripts/activate
 ```
 
-**For IOS**
+**For Unix**
 ```
-. bin/activate
+source venv/bin/activate
 ```
 
 To close Project use in terminal: ```deactivate```
